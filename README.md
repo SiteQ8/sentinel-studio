@@ -39,7 +39,11 @@ Imported files must contain either a Sentinel Studio export object with a `findi
 
 ## GitHub Pages
 
-The included workflow publishes this directory as a static GitHub Pages artifact on pushes to `main` or through manual dispatch. In the repository settings, set **Pages → Source** to **GitHub Actions**.
+GitHub Pages is configured for branch-based publishing from the `main` branch at the repository root. The pre-rendered content in `index.html` ensures the executive summary, findings register, and educational views remain useful as a static page.
+
+Some GitHub connector safety layers may filter script elements while writing a remote `index.html`. If the deployed page is missing its script include, the page will remain a polished static report but interactive filtering, local storage, import/export, and dialogs will not be enabled. The repository owner should add a normal deferred script element that loads `app.js` immediately before the closing body tag in the remote `index.html`.
+
+The local project intentionally retains its existing `app.js` script tag.
 
 ## Security and appropriate use
 
