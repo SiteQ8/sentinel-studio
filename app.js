@@ -473,6 +473,8 @@ function initializeEvents() {
  */
 
 function initialize() {
+  document.documentElement.classList.add("js");
+  document.querySelector(".static-mode-note")?.remove();
   $("#snapshotDate").textContent = new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date());
   initializeEvents();
   renderAll();
