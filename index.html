@@ -19,16 +19,16 @@
         <div><strong>Sentinel</strong><span>STUDIO</span></div>
       </div>
       <nav>
-        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Overview</span></button>
-        <button class="nav-link" data-view="findings"><span class="nav-icon">◇</span><span>Findings</span><span class="nav-count" id="navFindingCount">5</span></button>
-        <button class="nav-link" data-view="scope"><span class="nav-icon">◎</span><span>Scope &amp; Assets</span></button>
-        <button class="nav-link" data-view="attack"><span class="nav-icon">⌁</span><span>Attack Paths</span></button>
-        <button class="nav-link" data-view="knowledge"><span class="nav-icon">▣</span><span>Knowledge</span></button>
+        <a href="#dashboard" class="nav-link active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Overview</span></a>
+        <a href="#findings" class="nav-link" data-view="findings"><span class="nav-icon">◇</span><span>Findings</span><span class="nav-count" id="navFindingCount">5</span></a>
+        <a href="#scope" class="nav-link" data-view="scope"><span class="nav-icon">◎</span><span>Scope &amp; Assets</span></a>
+        <a href="#attack" class="nav-link" data-view="attack"><span class="nav-icon">⌁</span><span>Attack Paths</span></a>
+        <a href="#knowledge" class="nav-link" data-view="knowledge"><span class="nav-icon">▣</span><span>Knowledge</span></a>
       </nav>
       <div class="sidebar-foot">
         <div class="status-line"><span class="status-dot"></span><span>Local workspace</span></div>
         <p>All assessment data stays in this browser.</p>
-        <button class="text-button" id="openAbout">About this tool</button>
+        <a class="text-button" id="openAbout" href="#knowledge">About this tool</a>
       </div>
     </aside>
 
@@ -49,6 +49,10 @@
       </header>
 
       <main id="main" tabindex="-1">
+        <div class="static-mode-note">
+          <strong>GitHub Pages read-only mode</strong>
+          <span>Use the navigation to explore the complete assessment. Interactive editing and imports are available when running the repository locally.</span>
+        </div>
         <section class="view active" id="dashboard" aria-labelledby="dashboardTitle">
           <div class="page-heading">
             <div><p class="kicker">EXECUTIVE SUMMARY</p><h1 id="dashboardTitle">Security posture overview</h1><p>Prioritized assessment insights for decision-makers and remediation teams.</p></div>
