@@ -20,7 +20,7 @@
       </div>
       <nav>
         <button class="nav-link active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Overview</span></button>
-        <button class="nav-link" data-view="findings"><span class="nav-icon">◇</span><span>Findings</span><span class="nav-count" id="navFindingCount">0</span></button>
+        <button class="nav-link" data-view="findings"><span class="nav-icon">◇</span><span>Findings</span><span class="nav-count" id="navFindingCount">5</span></button>
         <button class="nav-link" data-view="scope"><span class="nav-icon">◎</span><span>Scope &amp; Assets</span></button>
         <button class="nav-link" data-view="attack"><span class="nav-icon">⌁</span><span>Attack Paths</span></button>
         <button class="nav-link" data-view="knowledge"><span class="nav-icon">▣</span><span>Knowledge</span></button>
@@ -52,7 +52,7 @@
         <section class="view active" id="dashboard" aria-labelledby="dashboardTitle">
           <div class="page-heading">
             <div><p class="kicker">EXECUTIVE SUMMARY</p><h1 id="dashboardTitle">Security posture overview</h1><p>Prioritized assessment insights for decision-makers and remediation teams.</p></div>
-            <div class="updated-label"><span class="status-dot"></span> Assessment snapshot <strong id="snapshotDate"></strong></div>
+            <div class="updated-label"><span class="status-dot"></span> Assessment snapshot <strong id="snapshotDate">14 Feb 2025</strong></div>
           </div>
           <div class="notice sample-notice"><span>i</span><div><strong>Demonstration assessment</strong><p>All organizations, assets, evidence, and findings shown are fictional sample data. Sentinel Studio does not perform active scanning.</p></div></div>
 
@@ -60,26 +60,36 @@
             <article class="card risk-card">
               <div class="card-label">COMPOSITE RISK SCORE <button class="info-tip" title="Weighted from open finding severities" aria-label="About risk score">?</button></div>
               <div class="risk-content">
-                <div class="risk-gauge" id="riskGauge"><div><strong id="riskScore">0</strong><span>/ 100</span></div></div>
-                <div><span class="risk-badge" id="riskLabel">—</span><h2 id="riskHeadline">Assessment risk</h2><p id="riskDescription">Calculated from active findings.</p></div>
+                <div class="risk-gauge" id="riskGauge" style="--risk-angle:194.4deg"><div><strong id="riskScore">54</strong><span>/ 100</span></div></div>
+                <div><span class="risk-badge" id="riskLabel">Elevated</span><h2 id="riskHeadline">Elevated residual exposure</h2><p id="riskDescription">5 active findings require review.</p></div>
               </div>
               <div class="risk-footer"><span>Assessment confidence</span><strong>High · Manual review</strong></div>
             </article>
             <article class="card severity-card">
               <div class="card-heading"><div><div class="card-label">OPEN FINDINGS</div><h2>Severity distribution</h2></div><button class="text-button go-findings">View register →</button></div>
-              <div class="severity-bars" id="severityBars"></div>
+              <div class="severity-bars" id="severityBars">
+                <div class="severity-row"><span>Critical</span><div class="severity-track"><i class="severity-fill" style="width:50%;background:#ff4d6d"></i></div><strong>1</strong></div>
+                <div class="severity-row"><span>High</span><div class="severity-track"><i class="severity-fill" style="width:50%;background:#ff8a4c"></i></div><strong>1</strong></div>
+                <div class="severity-row"><span>Medium</span><div class="severity-track"><i class="severity-fill" style="width:100%;background:#f4c95d"></i></div><strong>2</strong></div>
+                <div class="severity-row"><span>Low</span><div class="severity-track"><i class="severity-fill" style="width:50%;background:#55b4e9"></i></div><strong>1</strong></div>
+              </div>
             </article>
             <article class="card progress-card">
               <div class="card-label">REMEDIATION PROGRESS</div>
-              <div class="progress-ring-wrap"><div class="progress-ring" id="progressRing"><strong id="progressPercent">0%</strong><span>resolved</span></div></div>
-              <div class="mini-stats"><div><strong id="resolvedCount">0</strong><span>Resolved</span></div><div><strong id="acceptedCount">0</strong><span>Accepted</span></div><div><strong id="openCount">0</strong><span>Open</span></div></div>
+              <div class="progress-ring-wrap"><div class="progress-ring" id="progressRing" style="--progress-angle:90deg"><strong id="progressPercent">25%</strong><span>resolved</span></div></div>
+              <div class="mini-stats"><div><strong id="resolvedCount">2</strong><span>Resolved</span></div><div><strong id="acceptedCount">1</strong><span>Accepted</span></div><div><strong id="openCount">5</strong><span>Open</span></div></div>
             </article>
           </div>
 
           <div class="dashboard-lower">
             <article class="card priorities-card">
               <div class="card-heading"><div><div class="card-label">REMEDIATION QUEUE</div><h2>Top priorities</h2></div><span class="muted">Ranked by severity</span></div>
-              <div id="priorityList" class="priority-list"></div>
+              <div id="priorityList" class="priority-list">
+                <div class="priority-item" role="button" tabindex="0" aria-label="Open Cloud administration lacks phishing-resistant MFA"><i class="priority-dot" style="background:#ff4d6d"></i><div><h3>Cloud administration lacks phishing-resistant MFA</h3><p>F-002 · ns-production · Cloud Platform</p></div><span>→</span></div>
+                <div class="priority-item" role="button" tabindex="0" aria-label="Open Session lifetime exceeds policy"><i class="priority-dot" style="background:#ff8a4c"></i><div><h3>Session lifetime exceeds policy</h3><p>F-001 · portal.northstar.example · Identity Team</p></div><span>→</span></div>
+                <div class="priority-item" role="button" tabindex="0" aria-label="Open API errors disclose internal component names"><i class="priority-dot" style="background:#f4c95d"></i><div><h3>API errors disclose internal component names</h3><p>F-003 · api.northstar.example · API Engineering</p></div><span>→</span></div>
+                <div class="priority-item" role="button" tabindex="0" aria-label="Open Audit log retention is shorter than investigation objective"><i class="priority-dot" style="background:#f4c95d"></i><div><h3>Audit log retention is shorter than investigation objective</h3><p>F-007 · ns-production · Detection Team</p></div><span>→</span></div>
+              </div>
             </article>
             <article class="card coverage-card">
               <div class="card-heading"><div><div class="card-label">ASSESSMENT COVERAGE</div><h2>Control domains</h2></div></div>
@@ -103,7 +113,7 @@
             <div class="toolbar">
               <label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search findings</span><input id="searchInput" type="search" placeholder="Search title, asset, or tag…"></label>
               <div class="filter-group" aria-label="Filter by severity">
-                <button class="filter-chip active" data-severity="All">All <span id="allCount"></span></button>
+                <button class="filter-chip active" data-severity="All">All <span id="allCount">8</span></button>
                 <button class="filter-chip" data-severity="Critical">Critical</button>
                 <button class="filter-chip" data-severity="High">High</button>
                 <button class="filter-chip" data-severity="Medium">Medium</button>
@@ -114,11 +124,20 @@
             <div class="table-wrap">
               <table>
                 <thead><tr><th>Finding</th><th>Severity</th><th>Affected asset</th><th>Status</th><th>Owner</th><th aria-label="Actions"></th></tr></thead>
-                <tbody id="findingsTable"></tbody>
+                <tbody id="findingsTable">
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Session lifetime exceeds policy</strong><span>F-001</span></td><td><span class="severity high">High</span></td><td>portal.northstar.example</td><td><span class="status open">Open</span></td><td>Identity Team</td><td><button class="row-action" aria-label="Open Session lifetime exceeds policy">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Cloud administration lacks phishing-resistant MFA</strong><span>F-002</span></td><td><span class="severity critical">Critical</span></td><td>ns-production</td><td><span class="status in-progress">In progress</span></td><td>Cloud Platform</td><td><button class="row-action" aria-label="Open Cloud administration lacks phishing-resistant MFA">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>API errors disclose internal component names</strong><span>F-003</span></td><td><span class="severity medium">Medium</span></td><td>api.northstar.example</td><td><span class="status open">Open</span></td><td>API Engineering</td><td><button class="row-action" aria-label="Open API errors disclose internal component names">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Content Security Policy permits broad script sources</strong><span>F-004</span></td><td><span class="severity medium">Medium</span></td><td>portal.northstar.example</td><td><span class="status risk-accepted">Risk accepted</span></td><td>Web Platform</td><td><button class="row-action" aria-label="Open Content Security Policy permits broad script sources">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Dormant workforce accounts retained beyond offboarding target</strong><span>F-005</span></td><td><span class="severity high">High</span></td><td>id.northstar.example</td><td><span class="status resolved">Resolved</span></td><td>People Operations</td><td><button class="row-action" aria-label="Open Dormant workforce accounts retained beyond offboarding target">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Security contact file is not published</strong><span>F-006</span></td><td><span class="severity low">Low</span></td><td>portal.northstar.example</td><td><span class="status open">Open</span></td><td>Security</td><td><button class="row-action" aria-label="Open Security contact file is not published">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Audit log retention is shorter than investigation objective</strong><span>F-007</span></td><td><span class="severity medium">Medium</span></td><td>ns-production</td><td><span class="status in-progress">In progress</span></td><td>Detection Team</td><td><button class="row-action" aria-label="Open Audit log retention is shorter than investigation objective">•••</button></td></tr>
+                  <tr tabindex="0"><td class="finding-title-cell"><strong>Dependency inventory has incomplete ownership metadata</strong><span>F-008</span></td><td><span class="severity low">Low</span></td><td>api.northstar.example</td><td><span class="status resolved">Resolved</span></td><td>AppSec</td><td><button class="row-action" aria-label="Open Dependency inventory has incomplete ownership metadata">•••</button></td></tr>
+                </tbody>
               </table>
               <div class="empty-state" id="emptyState" hidden><span>◇</span><h3>No findings match</h3><p>Adjust the search or filters to see more results.</p></div>
             </div>
-            <div class="table-footer"><span id="resultCount"></span><span>Local data · Autosaved</span></div>
+            <div class="table-footer"><span id="resultCount">8 of 8 findings</span><span>Local data · Autosaved</span></div>
           </div>
         </section>
 
@@ -152,7 +171,7 @@
               <button class="attack-node target n5" data-node="Sensitive records"><span>IMPACT</span><strong>Sensitive records</strong><small>Confidentiality risk</small></button>
               <button class="attack-node target n6" data-node="Account actions"><span>IMPACT</span><strong>Account actions</strong><small>Integrity risk</small></button>
             </div>
-            <div class="path-explanation" id="pathExplanation"><strong>Select a node</strong><p>Explore how a condition may contribute to risk. Paths are hypotheses for remediation planning, not proof of exploitation.</p></div>
+            <div class="path-explanation" id="pathExplanation"><strong>Conceptual risk path</strong><p>Explore how fictional conditions may contribute to risk. Paths are remediation hypotheses, not proof of exploitation or compromise.</p></div>
           </article>
         </section>
 
@@ -171,13 +190,13 @@
 
   <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
   <aside class="drawer" id="findingDrawer" aria-labelledby="drawerTitle" aria-modal="true" role="dialog" hidden>
-    <div class="drawer-header"><div><span class="finding-id" id="drawerId"></span><h2 id="drawerTitle">Finding detail</h2></div><button class="icon-button" id="closeDrawer" aria-label="Close finding detail">×</button></div>
+    <div class="drawer-header"><div><span class="finding-id" id="drawerId">F-002</span><h2 id="drawerTitle">Cloud administration lacks phishing-resistant MFA</h2></div><button class="icon-button" id="closeDrawer" aria-label="Close finding detail">×</button></div>
     <div class="drawer-body">
-      <div class="drawer-meta" id="drawerMeta"></div>
-      <section><h3>Overview &amp; impact</h3><p id="drawerImpact"></p></section>
-      <section><h3>Evidence</h3><div class="evidence-box" id="drawerEvidence"></div></section>
-      <section><h3>Recommended remediation</h3><p id="drawerRemediation"></p></section>
-      <section><h3>References</h3><ul class="references" id="drawerReferences"></ul></section>
+      <div class="drawer-meta" id="drawerMeta"><span class="severity critical">Critical</span><span class="status in-progress">In progress</span><span class="meta-chip">ns-production</span><span class="meta-chip">Cloud Platform</span><span class="meta-chip">#identity</span><span class="meta-chip">#cloud</span><span class="meta-chip">#MFA</span></div>
+      <section><h3>Overview &amp; impact</h3><p id="drawerImpact">If a privileged credential were separately compromised, a weaker second factor may not provide sufficient protection against modern phishing. Administrative access could affect the confidentiality, integrity, and availability of fictional cloud resources.</p></section>
+      <section><h3>Evidence</h3><div class="evidence-box" id="drawerEvidence">Sample configuration review: two fictional emergency administrator accounts permit a legacy one-time-password factor. No authentication attempts were performed.</div></section>
+      <section><h3>Recommended remediation</h3><p id="drawerRemediation">Require phishing-resistant authentication such as passkeys or hardware-backed FIDO2 keys for privileged roles. Restrict emergency accounts, monitor their use, and maintain a tested recovery process.</p></section>
+      <section><h3>References</h3><ul class="references" id="drawerReferences"><li><a href="https://www.cisa.gov/resources-tools/resources/implementing-phishing-resistant-mfa" target="_blank" rel="noopener noreferrer">CISA: Implementing Phishing-Resistant MFA</a></li></ul></section>
     </div>
     <div class="drawer-footer"><button class="button danger" id="deleteFinding">Delete</button><div><button class="button secondary" id="drawerCloseButton">Close</button><button class="button primary" id="editFinding">Edit finding</button></div></div>
   </aside>
@@ -212,6 +231,5 @@
     <div class="modal-footer"><button class="button primary dialog-close">Got it</button></div>
   </dialog>
   <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
-  
 </body>
 </html>
