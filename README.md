@@ -1,6 +1,6 @@
 # Sentinel Studio
 
-Sentinel Studio is a polished, static cybersecurity assessment reporting dashboard. It helps authorized teams organize findings, communicate risk, model conceptual attack paths, and export a printable assessment record—without sending assessment data to a server.
+Sentinel Studio is a polished, static cybersecurity assessment reporting dashboard. It helps authorized teams organize findings, communicate risk, model conceptual attack paths, and export a printable assessment record, without sending assessment data to a server.
 
 > **Demonstration notice:** The included Northstar engagement, assets, evidence, coverage, and findings are entirely fictional sample data. Sentinel Studio does not scan targets, run exploits, validate vulnerabilities, or independently verify security controls.
 
